@@ -1,0 +1,38 @@
+package btree;
+
+public class SD {
+    public static void main(String[] args) {
+        // Crear un BTree de orden 4 (máximo 3 claves por nodo)
+        BTree<Integer> arbol = new BTree<>(5);
+
+        // Insertar elementos en el árbol
+        int[] valores = {10, 20, 5, 6, 12, 30, 7, 17, 3, 1, 15};
+        System.out.println("=== Insertando valores ===");
+        for (int val : valores) {
+            System.out.println("Insertando: " + val);
+            arbol.insert(val);
+        }
+
+        // Mostrar el árbol
+        System.out.println("\n=== Árbol B completo ===");
+        System.out.println(arbol);
+
+        // Buscar valores existentes
+        System.out.println("\n=== Búsqueda de valores existentes ===");
+        int[] buscar = {6, 15, 10};
+        for (int val : buscar) {
+            System.out.println("Buscando " + val + ": " + (arbol.search(val) ? "Encontrado" : "No encontrado"));
+        }
+
+        // Buscar valores no existentes
+        System.out.println("\n=== Búsqueda de valores NO existentes ===");
+        int[] noExistentes = {100, -5, 13};
+        for (int val : noExistentes) {
+            System.out.println("Buscando " + val + ": " + (arbol.search(val) ? "Encontrado" : "No encontrado"));
+        }
+
+        // Mostrar árbol después de búsquedas
+        System.out.println("\n=== Árbol B final (con IDs de nodos) ===");
+        System.out.println(arbol);
+    }
+}
