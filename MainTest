@@ -1,0 +1,29 @@
+package btree;
+
+public class MainTest {
+    public static void main(String[] args) {
+        GestorEstudiantes gestor = new GestorEstudiantes();
+
+        // Insertamos algunos estudiantes de ejemplo
+        gestor.insertarEstudiante(101, "Ana");
+        gestor.insertarEstudiante(106, "Luis");
+        gestor.insertarEstudiante(110, "Carlos");
+        gestor.insertarEstudiante(120, "María");
+
+        System.out.println("=== Árbol original ===");
+        gestor.reporteEstudiantes();
+
+        // Eliminar estudiante con código 101
+        gestor.eliminarEstudiante(101);
+
+        // Eliminar estudiante con código 110
+        gestor.eliminarEstudiante(110);
+
+        // Buscar estudiante con código 106
+        System.out.println("=== Resultado de búsqueda ===");
+        System.out.println(gestor.buscarEstudiante(106)); // Debería encontrarse
+
+        System.out.println("=== Árbol final ===");
+        gestor.reporteEstudiantes();
+    }
+}
