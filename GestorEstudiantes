@@ -1,0 +1,31 @@
+package btree;
+
+public class GestorEstudiantes {
+	private BTree<RegistroEstudiante> btree;
+	
+	public GestorEstudiantes() {
+		btree = new BTree<>(4);
+	}
+	
+	public void insertarEstudiante(int codigo, String nombre) {
+		btree.insert(new RegistroEstudiante(codigo, nombre));
+	}
+	
+	public String buscarEstudiante(int codigo) {
+        RegistroEstudiante buscado = new RegistroEstudiante(codigo, ""); // Solo código para comparar
+        boolean encontrado = btree.search(buscado);
+        return encontrado ? "Estudiante con código " + codigo + " encontrado." : "No se encontró el estudiante.";
+    }
+     
+	public void eliminarEstudiante(int codigo) {
+	    RegistroEstudiante estudiante = new RegistroEstudiante(codigo, ""); // Solo importa el código
+	    btree.remove(estudiante);
+	    System.out.println("Estudiante con código " + codigo + " eliminado.");
+	}
+
+	
+	public void reporteEstudiantes() {
+		System.out.println(btree.toString());
+	}
+	
+}
