@@ -1,0 +1,30 @@
+package btree;
+
+public class BTreeTest {
+    public static void main(String[] args) {
+        BNode.idCounter = 1;
+
+        BTree<Integer> btree = new BTree<>(5);
+
+        int[] claves = {
+            3, 10,
+            13, 16,
+            12, 19,
+            22, 25, 28,
+            33, 38, 40,
+            49, 52, 55,
+            60, 62,
+            41, 57, 63,
+            31,
+            67, 70, 72,
+            };
+
+        for (int clave : claves) {
+            btree.insert(clave);
+        }
+
+        // Imprimir la tabla como en la imagen
+        System.out.println(btree.toString());
+    }
+}
+
