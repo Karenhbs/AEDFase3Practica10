@@ -1,0 +1,19 @@
+package btree;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import Exceptions.ItemNoFound;
+
+public class TestBuilding {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+        try {
+            BTree<RegistroEstudiante> tree = BTree.building_Btree("arbolB.txt");
+            System.out.println("Árbol construido exitosamente:");
+            System.out.println(tree);
+        } catch (ItemNoFound ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+    }
+}
+
